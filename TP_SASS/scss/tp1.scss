@@ -1,0 +1,75 @@
+//Question 1
+
+// $nbElem:4;
+// @for $i from 1 through $nbElem{
+//    .taille-#{$i}{
+//       width: (100% / $nbElem) * $i;
+//    }
+// }
+
+//Question 2
+
+// @mixin gradualWidth(){
+//    $nbElem:4;
+//    @for $i from 1 through $nbElem{
+//       .taille-#{$i}{
+//          width: (100% / $nbElem) * $i;
+//       }
+//    }
+// }
+// @include gradualWidth()
+
+//Question 3
+
+// $tailles: petite, standard, moyenne, grande;
+// $i:1;
+// @each $taille in $tailles{
+//    .taille-#{$taille}{
+//       width: (100% / length($tailles)) * $i;
+//    }
+//    $i: $i + 1;
+// }
+//
+// //Question 4
+//
+// @mixin gradualWidth($class, $liste){
+//    $tailles: $liste;
+//    $i:1;
+//    @each $taille in $tailles{
+//       .#{$class}-#{$taille}{
+//          width: (100% / length($tailles)) * $i;
+//       }
+//       $i: $i + 1;
+//    }
+// }
+//
+// //Question 6
+//
+// @function returnFirstInArray($array) {
+//   @return nth($array,1);
+// }
+//
+// $tableau_tailles : "petit","standard","moyen","grand";
+// p {
+//   content : returnFirstInArray($tableau_tailles)
+// }
+//
+// //Question 7
+//
+// @function returnLastInArray($array){
+//    @return nth($array, length($array));
+// }
+
+//Question 8
+
+$destinations: (espagne:"Espagne", maroc:"Maroc", bresil:"Brésil",caraibes:"Les îles caraïbes");
+
+//Question 9
+
+$villes: espagne, maroc, bresil, caraibes;
+@each $ville in $villes{
+   .ville-#{$ville}::before{
+      display: block;
+      content: "#{get($destinations,$ville)}";
+   }
+}

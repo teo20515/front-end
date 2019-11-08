@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAyBG,cAAkB;EACf,KAAK,EAAE,GAA8B;;AADxC,gBAAkB;EACf,KAAK,EAAE,GAA8B;;AADxC,eAAkB;EACf,KAAK,EAAE,GAA8B;;AADxC,cAAkB;EACf,KAAK,EAAE,IAA8B;;AAuB3C,CAAE;EACA,OAAO,EAFU,OAAO",
+"sources": ["../scss/tp1.scss"],
+"names": [],
+"file": "tp1.css"
+}
