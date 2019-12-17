@@ -1,0 +1,13 @@
+.ProgressBarHolder{
+   border-color: black;
+   border-width: 1px;
+   border-style: solid;
+   width: 200px;
+   height: 40px;
+}
+
+.ProgressBar{
+   background-color: lightgreen;
+   width: 0%;
+   height: 100%;
+}

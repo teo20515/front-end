@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <script src="jquery-3.4.1.js" charset="utf-8"></script>
+      <script src="villes.js" charset="utf-8"></script>
+   </head>
+   <body>
+
+      <form class="" onsubmit="event.preventDefault(); trouverPays();">
+         <label for="ville">Entrez votre ville</label>
+         <input type="text" name="ville" id="ville" value="">
+
+         <button type="submit" name="buttonChoose">Choisir une destination</button>
+         <button type="button" name="buttonAdd" id="buttonAdd" hidden>Ajouter la destination</button>
+      </form>
+
+      <p id="messageBienvenue"></p>
+
+      <div>
+         <ul id="suggestions">
+         </ul>
+      </div>
+
+   </body>
+</html>
