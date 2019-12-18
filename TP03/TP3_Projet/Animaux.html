@@ -36,6 +36,7 @@
   <div class="document">
 
     <table id="tableAnimaux">
+
       <tr>
         <th>Nom</th>
         <th>Description</th>
@@ -43,47 +44,32 @@
         <th></th>
       </tr>
 
-      <tr>
-        <td>
-          <p>Pangolin</p>
-          <img src="Images/pangolin.jpg" alt="Pangolin">
-        </td>
-        <td>Il est toujours désolé</td>
-        <td>Afrique et Asie du sud-est</td>
-        <td>   <button type="button" name="button">Découvrir</button></td>
-      </tr>
-
-      <tr>
-        <td>
-          <p>Kiwi</p>
-          <img src="Images/kiwi.jpeg" alt="Kiwi">
-        </td>
-        <td>Ceci n'est pas un fruit</td>
-        <td>Nouvelle zeleande</td>
-        <td>   <button type="button" name="button">Découvrir</button></td>
-      </tr>
-
-      <tr>
-        <td>
-          <p>Ornithorynque</p>
-          <img src="Images/ornithorynque.jpg" alt="Ornithorynque">
-        </td>
-        <td>Monsieur patate de l'évolution</td>
-        <td>Australie</td>
-        <td>   <button type="button" name="button">Découvrir</button></td>
-      </tr>
-
-      <tr>
-        <td>
-          <p>Quokka</p>
-          <img src="Images/quokka.jpg" alt="Quokka">
-        </td>
-        <td>Il est content :)</td>
-        <td>Australie</td>
-        <td>   <button type="button" name="button">Découvrir</button></td>
-      </tr>
-
     </table>
+
+    <form class="" onsubmit="event.preventDefault();addRow()">
+       <label for="espece">Nom de l'espèce*</label>
+       <input type="text" id="espece" value="" required>
+       <br>
+       <label for="description">Description*</label>
+       <input type="text" id="description" value="" required>
+       <br>
+       <label for="lienImage">Lien vers une image</label>
+       <input type="url" id="lienImage" value="">
+       <br>
+       <label for="habitat">Habitat*</label>
+       <input type="text" id="habitat" value="" required>
+       <br>
+       <input type="submit" value="Ajouter">
+    </form>
+
   </div>
+
+  <script src="Scripts/jquery-3.4.1.js" charset="utf-8"></script>
+  <script src="Scripts/ModelAnimaux.js" charset="utf-8"></script>
+  <script src="Scripts/ControllerAnimaux.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+     afficherAnimaux($('#tableAnimaux'));
+  </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+#tableAnimaux {
+   border: 1px solid black;
+}
+th {
+   background-color: lightgray;
+}
+tr:nth-child(even){
+   background-color: lightblue;
+}
+tr:hover{
+   background-color: lightgreen;
+}
+tr img{
+   width: 250px;
+}
