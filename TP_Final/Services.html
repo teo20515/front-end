@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="description" content="zoo">
+  <meta name="auteur" content="Bah moi">
+  <link rel="stylesheet" href="CSS/leaflet.css">
+  <link rel="stylesheet" href="CSS/menu.css">
+  <link rel="stylesheet" href="CSS/site.css">
+
+  <meta charset="utf-8">
+  <title>Menu</title>
+</head>
+<body>
+
+  <header>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a href="Accueil.html">Menu</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="">Animaux</a></li>
+          <li><a href="">Visite virtuelle (audio)</a></li>
+          <li><a href="">Visite virtuelle (video)</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="document">
+
+      <div class="information">
+         <ul>
+            <li>Parc de l'IUT 2, Grenoble, créé pour acceuillir les esprits les plus brillants</li>
+            <li>Jardin des plantes de Paris, histoire de dire qu'il y a un peu de verdure</li>
+            <li>Parc Animalier d'Auvergne, pour rendre utile le trop plein de verdure</li>
+         </ul>
+      </div>
+
+      <div class="assistance">
+         Pour tout renseignement supplémentaire, rendez-vous sur la section "contact"
+         (qui ne marche pas vu qu'elle n'est pas présente dans ce projet mais faites comme si) ou sur le site de nos partenaires !
+      </div>
+
+      <div class="localisation" id="mapid">
+      </div>
+
+  </div>
+</body>
+
+<script src="Scripts/leaflet.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+   //Position de la carte dans la div ayant l'id "mapid" en précisant coordonnées [x,y] et niveau de zoom
+   var map = L.map('mapid').setView([45.2,5.7],13);
+
+   //Affichage de la légende
+   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+		id: 'mapbox/streets-v11'
+	}).addTo(map);
+
+   //Création du marqueur personalisé pour notre zoo
+   var mainIcon = L.icon({
+      iconUrl: 'CSS/images/marker-icon-2x-red.png',
+
+      iconSize:      [50,82],
+      iconAnchor:    [25,82],
+      popupAnchor:   [0,-78]
+   });
+   var mainMarker = L.marker([45.1917863,5.7148702], {icon: mainIcon}).addTo(map);
+   mainMarker.bindPopup("<b>I.U.T.2 Doyen Gosse</b><br>2 Place Doyen Gosse, 38000 Grenoble").openPopup();
+
+   //Ajout du marqueur pour La Ménagerie, Paris
+   var menagerieMarker = L.marker([48.8437553, 2.3119152]).addTo(map);
+   menagerieMarker.bindPopup("<b>La Ménagerie, Jardin des plantes</b><br>57 Rue Cuvier, 75005 Paris");
+
+   //Ajout du marqueur pour le parc animalier d'auvergne
+   var auvergneMarker = L.marker([45.3932454,3.1158009]).addTo(map);
+   auvergneMarker.bindPopup("<b>Parc Animalier d'Auvergne</b><br>Route d'Anzat, 63420 Ardes");
+
+   //[REDACTED]
+   var redactedMarker = L.marker([37.2262993,-115.8236522]).addTo(map);
+   redactedMarker.bindPopup("<b>R̷͓̠͈̜̮̘͖̪͉̞̤̺̱̝̺͓̉̒̀̈͊̊̎̃͘͜͝ͅE̷̡̧̨̡͙̺͇̰͇͙̳̠̼̤̻̣̟͈͒D̵̡̨̙̯̭̗̮̰̟̘͕̭̮̯̎̂̃̓̈́͌͊́̋̌͐̓͒̚̕̚͝͝Ȃ̸͉̇̀̌͐̃̈́̊̽̒̑̚͘͠͝C̶̛̲̰̬̞̯͌̀̈́͗̓̌̏̀̽̌̄̍͊̕͘͝͠Ṭ̶̢̧̧̮̞̹̜͈̗̜͛̍̀̊̒́̚͠ͅͅE̷̡̼̻̥͔̝͑D̶̡̡̬̤͕̰̖͖͈̪̆̐̿̈̾̇͌͐͒̕̚</b><br>G̶̻̣̪̥͔̫̃̿͊̿r̴̡̛̪͚̫̭̩̱̻̼͍̜̦̙̔͐͒͌͑̊ỏ̸̢̨͔̜̯͍͕͕̤͓̊̏̓̑̊̓͆̀͋̅͗͝õ̴̡̰̰̯͈̿̌̏͜m̸͙̙̖̻̈́ ̷̨̫̗̱̝̺̥̰̲̠̺̟̱̋̋̈́̉̔̒́́̐̏̍͑̽͐̚L̶̢̧͙̘̭͔̣̼̞̙̝̯̰̠̦̟͍̀̑̊̐̈́a̴̞̜̠͙̯̰͎̝̰̬̲̖̭͕͕̜͋̀̏́͒̈́̋̓͛͑̕͝ķ̸̡̧̭̲̯͔͉͖̞͍̪̙̭̫̞̳͛̀͆̍̈́͗̏̎͂̄̕͜͝ě̶̦̥͔̫̺̯̥̹̮͚̳͚͍̋̐͋̐͛̈͐͂͜,̴̛̯͎̬̟̠̲͙̜̺̙̂̑͒̋̈́̉͜͠͠ ̵̨̧̛͍̼͇̲͈̦͍͍͍̫̱̭̇̔̍̑́͊̔͂̌͐̒̆͐̓͝͝͝ͅN̷̢̨͓̝͖̗͙̲͚̮̓̈̈́͋̎̈̊̈́̽̈́͘e̸̢̢̢̠̞̗̘̗̩̬̪͕̟̚v̴̢̢̟͖̥̮̠̪̉́̀͜ä̶̧̝͖̤͈͍̲̭͔̘́̔̅́͒͊͂̃̈͂̆͌̚͜ͅd̸̛̼̹̮̞̓̈́̇̈́̓̇͗à̷̞̱͈̳̻͚͉̗̞̙͈̱̥͕͔̹͎͂̐͑̌̀͂̍̈́̋̀̈̚͜");
+</script>
+
+</html>
